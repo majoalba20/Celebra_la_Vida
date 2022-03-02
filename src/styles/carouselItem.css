@@ -1,0 +1,18 @@
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35vh;
+}
+
+.carousel-wrapper {
+    width: 100%;
+}
+
+.rec-arrow-right,.rec-arrow-left{
+    display: none;
+}
+
+.rec.rec-dot_active {
+    background: #FFE593;
+}
