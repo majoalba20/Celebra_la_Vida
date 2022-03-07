@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Buttons = ({text , icon}) => {
+const Buttons = ({text , icon, filtroCategory,cat}) => {
     return (
-        <button className='flex shadow-xl rounded-lg bg-boton p-2'>
+        <button onClick={()=>filtroCategory(cat)} className='flex items-center shadow-xl rounded-lg bg-boton p-2'>
             <img className='w-5 mr-2' src={icon} alt="" />
-            <p className='font-fredoka font-black text-white'>{text}</p>
+            <p className='font-fredoka text-sm text-white'>{text}</p>
         </button>
     )
 }

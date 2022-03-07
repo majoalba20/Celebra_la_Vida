@@ -17,6 +17,7 @@ module.exports = {
       'fondoCard' : '#FFE59370',
       'boton' : '#B3E2A6',
       'botonActive' : '#A9DE66',
+      'fondoDetail' : '#FFE593',
       inherit: colors.inherit,
       current: colors.current,
       transparent: colors.transparent,
@@ -934,7 +935,7 @@ module.exports = {
       50: '50',
     },
     extend: {fontFamily: {
-      'fredoka': ['"Fredoka"'],
+      'fredoka': ['"Fredoka One"'],
       'nunito': ['"Nunito"']
     }},
   },
