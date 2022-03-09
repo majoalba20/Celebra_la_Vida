@@ -9,6 +9,10 @@
     width: 100%;
 }
 
+.rec-carousel-wrapper{
+    height: 16rem;
+}
+
 .rec-arrow-right,.rec-arrow-left{
     display: none;
 }
