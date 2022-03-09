@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import CounterButton from '../components/CounterButton'
 import { CartState } from '../context/Context'
 
 const ProductDetail = () => {
@@ -39,8 +38,10 @@ const ProductDetail = () => {
             <p className='font-nunito px-7 py-2'>{detail.descripcion}</p>
             <img className='w-3/5 m-auto' src={detail.img} alt="" />
             <div style={{height:'40vh'}} className='w-full rounded-t-3xl h-3/6 bg-white flex flex-col justify-around'>
-                <p className='font-fredoka font-black text-mostaza text-4xl'>${detail.precio}</p> <br/> 
-                <p className='font-fredoka text-xs'>TAMAÑO DEL PASTEL</p> <br/> 
+                <div className='px-6'>
+                    <p className='font-fredoka font-black text-mostaza text-4xl'>${detail.precio}</p> <br/> 
+                    <p className='font-fredoka text-xs'>TAMAÑO DEL PASTEL</p>
+                </div>
                 <div className='flex justify-center'>
                     <select className='w-11/12 rounded-full border-2 border-black/50 p-1 bg-white' name="porciones">
                         <option>6 porciones</option>
@@ -48,7 +49,6 @@ const ProductDetail = () => {
                     </select> 
                 </div>
                 <div className='flex justify-around items-center'>
-                    <CounterButton/>
                     <button onClick={()=>{dispatch({type: "ADD_TO_CART", payload:detail})}} className='bg-botonActive rounded-full px-5 py-2 font-fedora font-black'>Añadir al carrito</button>
                 </div>
             </div>
