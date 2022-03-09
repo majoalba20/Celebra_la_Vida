@@ -1,15 +1,18 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const ProductCards = ({cardInfo, searchItem}) => {
+const ProductCards = ({cardInfo}) => {
 
     return (
         <>
             {
-            cardInfo.filter((item)=>{
-                if(item === ''){return item}
-                else if(item.name.toLowerCase().includes(searchItem.toLowerCase())){return item}
-            }).map((item) => {
+            cardInfo.length==0 
+            ?(
+            <div className='w-full flex justify-center py-5'>
+                <h1>Proximamente</h1>
+            </div>
+            ) 
+            :(cardInfo.map((item) => {
                 return (
                     <NavLink to={`/Products/${item.id}`} className='flex w-3/4 my-4 m-auto rounded-md items-center bg-fondoCard cursor-pointer md:w-1/4' key={item.id}>
                         <div className='flex'>
@@ -19,7 +22,7 @@ const ProductCards = ({cardInfo, searchItem}) => {
                     </NavLink >
                     
                 )
-            })
+            }))
             }
         </>
     )
