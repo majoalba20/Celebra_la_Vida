@@ -13,7 +13,7 @@ const Products = () => {
     const filtroCategory = (c)=>{
         const result = cardInfo.filter((cat) => 
         {
-            return cat.category === c;
+            return cat.category === c
         });
         setCardInfo(result)
     }
@@ -22,8 +22,10 @@ const Products = () => {
         <>
             <h1 className='font-black text-4xl pt-6 font-fredoka text-center'>CELEBRA LA <b className='text-mostaza'>VIDA</b></h1>
             <p className='font-fredoka font-black pl-8 py-4'>Categorias</p>
-            <ButonSection filtroCategory={filtroCategory} />
-            <ProductCards cardInfo={info}/>
+            <ButonSection filtroCategory={filtroCategory} setCardInfo={setCardInfo}/>
+            <div className='md:flex md:flex-wrap md:h-1/2 md:w-11/12 md:gap-2 md:m-auto md:my-6'>
+                <ProductCards cardInfo={info}/>
+            </div>
             <Navbar/>
         </>
     )

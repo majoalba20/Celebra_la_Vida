@@ -55,7 +55,7 @@ const Context = ({ children }) => {
     },
     {
         "id": 6,
-        "name": "LEMON & POPPY CAKE",
+        "name": "LEMON AND POPPY CAKE",
         "img": lemonAmapola,
         "category": "Cake",
         "descripcion": "Torta de limón y amapola rellena de Buttermilk",

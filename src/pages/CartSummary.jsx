@@ -9,6 +9,18 @@ const CartSummary = () => {
 
     const [total, setTotal] = useState();
 
+    const [message, setMessage] = useState("")
+
+    const createMessage = () => {
+        let message = `Hola me gustaria pedir: ${cart.map((item) => {
+            return (
+                JSON.stringify(item.qty) + " " + JSON.stringify(item.name)
+            )
+        })}\n\nTOTAL: $${total}`
+        message = encodeURI(message)
+        return message
+    }
+
     useEffect(()=>{
         setTotal(cart.reduce((acc,curr) => acc+ Number(curr.precio)*curr.qty,0))
     })
@@ -38,7 +50,11 @@ const CartSummary = () => {
                             <span>${total}</span>
                         </div>
                         <div className='w-full flex justify-center pt-6 pb-10'>
-                            <button className='font-fredoka bg-botonActive shadow-xl rounded-lg p-2'>REALIZAR PEDIDO VIA <br /> WHATSAPP</button>
+                            <a
+                                onClick={() => {setMessage(createMessage)}}
+                                href={`https://api.whatsapp.com/send?phone=${'+573504598741'}&text=${message}`}>
+                                <button className='font-fredoka bg-botonActive shadow-xl rounded-lg p-2'>REALIZAR PEDIDO VIA <br /> WHATSAPP</button>
+                            </a>
                         </div>
                     </>
                 ):

@@ -6,7 +6,9 @@ const Home = () => {
     return (
         <>
             <h1 className='font-black text-4xl py-6 font-fredoka text-center'>CELEBRA LA <b className='text-mostaza'>VIDA</b></h1>
-            <CarouselImage/>
+            <div className='h-50 lg:hidden'>
+                <CarouselImage/>
+            </div>
                 <h3 className='font-fredoka font-black py-4 pl-3'>HOLA SOY XIOMARA ALBA NIÑO.</h3>
                     <p className='font-nunito px-3'> Quiero darte la bienvenida al emprendimiento <b className='text-rosapalo'>"CELEBRA LA VIDA"</b>, 
                         creado para ti con mucho amor; porque <b className='text-beige'>LA FELICIDAD SE LLEVA POR DENTRO</b>, 
