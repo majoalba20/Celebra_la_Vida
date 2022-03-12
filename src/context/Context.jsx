@@ -8,6 +8,7 @@ import traditional from '../assets/tradicional.png'
 import chocolate from '../assets/chocolate.png'
 import lemonAmapola from '../assets/lemonAmapola.png'
 import zanahoria from '../assets/Zanahoria.png'
+import Ganache from '../assets/Ganache.png'
 
 const Cart = createContext()
 
@@ -15,7 +16,7 @@ const Context = ({ children }) => {
 
     const cardInfo = [{
         "id": 1,
-        "name": "COFFE CAKE",
+        "name": "TORTA DE CAFÉ",
         "img": cafe,
         "category": "Cake",
         "descripcion": "Torta de Café con relleno y decoración de Buttercream de café y chocolate.",
@@ -23,7 +24,7 @@ const Context = ({ children }) => {
     },
     {
         "id": 2,
-        "name": "VANILLA CAKE",
+        "name": "TORTA DE VAINILLA",
         "img": vanilla,
         "category": "Cake",
         "descripcion": "Torta de vainilla con relleno de pistacho, decorada con Buttercream de frutos rojos.",
@@ -31,7 +32,7 @@ const Context = ({ children }) => {
     },
     {
         "id": 3,
-        "name": "WINE CAKE",
+        "name": "TORTA DE VINO",
         "img": vino,
         "category": "Cake",
         "descripcion": "Torta de vino con frutos secos.",
@@ -39,7 +40,7 @@ const Context = ({ children }) => {
     },
     {
         "id": 4,
-        "name": "TRADITIONAL CAKE",
+        "name": "TORTA TRADICIONAL",
         "img": traditional,
         "category": "Cake",
         "descripcion": "Torta tradicional de vainilla con cubierta de merengue suizo y relleno de arequipe.",
@@ -47,7 +48,7 @@ const Context = ({ children }) => {
     },
     {
         "id": 5,
-        "name": "CHOCOLATE CAKE",
+        "name": "TORTA DE CHOCOLATE",
         "img": chocolate,
         "category": "Cake",
         "descripcion": "Torta de chocolate cubierto de ganache de chocolate.",
@@ -55,7 +56,7 @@ const Context = ({ children }) => {
     },
     {
         "id": 6,
-        "name": "LEMON AND POPPY CAKE",
+        "name": "TORTA DE LIMON Y AMAPOLA",
         "img": lemonAmapola,
         "category": "Cake",
         "descripcion": "Torta de limón y amapola rellena de Buttermilk",
@@ -63,11 +64,19 @@ const Context = ({ children }) => {
     },
     {
         "id": 7,
-        "name": "CARROT CAKE",
+        "name": "TORTA DE ZANAHORIA",
         "img": zanahoria,
         "category": "Cake",
         "descripcion": "Torta de Zanahoria cubierta de frosting de queso crema",
         "precio": "60000"
+    },
+    {
+        "id": 8,
+        "name": "TORTA DE GANACHE",
+        "img": Ganache,
+        "category": "Cake",
+        "descripcion": "Deliciosa torta de Ganache cubierta con Fondant.",
+        "precio": "75000"
     }]
 
     const [state,dispatch] = useReducer(cartReducer,{

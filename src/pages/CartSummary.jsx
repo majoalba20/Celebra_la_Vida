@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { CartState } from '../context/Context'
 import Navbar from '../components/Navbar'
 import CartCard from '../components/CartCard'
+import NavbarTop from '../components/NavbarTop'
+import Footer from '../components/Footer'
+import emptyCart from '../assets/emptyCart.jpeg'
 
 const CartSummary = () => {
 
@@ -14,7 +17,7 @@ const CartSummary = () => {
     const createMessage = () => {
         let message = `Hola me gustaria pedir: ${cart.map((item) => {
             return (
-                JSON.stringify(item.qty) + " " + JSON.stringify(item.name)
+                " " + "("+item.qty+")" + " " + item.name
             )
         })}\n\nTOTAL: $${total}`
         message = encodeURI(message)
@@ -27,11 +30,18 @@ const CartSummary = () => {
 
     return (
         <>
-            <h1 className='font-fredoka text-2xl p-5'>CARRITO DE<br />COMPRAS</h1>
+            <div className='lg:flex lg:justify-between lg:m-auto lg:items-center lg:w-11/12'>
+                <h1 className='font-black text-4xl pt-6 lg:py-6 font-fredoka text-center'>CELEBRA LA <b className='text-mostaza'>VIDA</b></h1>
+                <div className='opacity-0 lg:opacity-100 lg:w-1/4'>
+                    <NavbarTop/>
+                </div>
+            </div>
             {
                 cart.length>0 ? ( 
                     <>
-                        <CartCard/>
+                        <div className='w-full flex flex-wrap p-5 justify-center lg:gap-5'>
+                            <CartCard/>
+                        </div>
                         {cart.map(c => {
                             return(
                                 <div key={c.id}>
@@ -59,10 +69,18 @@ const CartSummary = () => {
                     </>
                 ):
                 (
-                    <span className='px-5 font-nunito text-mostaza'>El carrito esta vacio</span>
+                    <>
+                        <span className='px-5 font-nunito text-mostaza lg:px-16'>El carrito esta vacio</span>
+                        <img className='m-auto' src={emptyCart} alt="" />
+                    </>
                 )
             }
-            <Navbar/>
+            <div className='opacity-0 lg:opacity-100'>
+                <Footer/>
+            </div>
+            <div className='lg:hidden'>
+                <Navbar/>
+            </div>
         </>
     )
 }

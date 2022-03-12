@@ -13,12 +13,12 @@ const ButonSection = ({filtroCategory,setCardInfo}) => {
     const {state:{cardInfo}} = CartState()
 
     return (
-        <div className='flex flex-wrap w-11/12 gap-2 pl-8'>
+        <div className='flex flex-wrap w-11/12 gap-2 pl-8 lg:w-full lg:justify-center'>
             <button onClick={()=>setCardInfo(cardInfo)} className='font-fredoka text-sm text-white shadow-xl rounded-lg bg-boton p-2'>All</button>
             <Buttons cat='Cake' filtroCategory={filtroCategory} text='Cakes' icon={Cake}/>
             <Buttons cat='SugarFree' filtroCategory={filtroCategory} text='Cakes Sugar Free' icon={CakeFree}/>
-            <Buttons cat='Cupcake' filtroCategory={filtroCategory} text='Cupcakes' icon={Cupcake}/>
-            <Buttons cat='Chocolate' filtroCategory={filtroCategory} text='Chocolateria' icon={Chocolate}/>
+            <Buttons cat='Cupcake'  filtroCategory={filtroCategory} text='Cupcakes' icon={Cupcake}/>
+            <Buttons cat='Chocolate'  filtroCategory={filtroCategory} text='Chocolateria' icon={Chocolate}/>
         </div>
     )
 }
