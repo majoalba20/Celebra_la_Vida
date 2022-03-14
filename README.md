@@ -30,3 +30,9 @@ E-commerce de un emprendimiento dedicado a la venta de tortas tradicionales, tor
     <li>María José Alba</li>
 </ul>
 
+<h1>Deploy 🖥️</h1>
+
+<ul>
+    <li>https://celebra-la-vida-gcactsw0a-majoalba20.vercel.app/</li>
+</ul>
+
