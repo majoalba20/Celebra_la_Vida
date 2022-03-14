@@ -14,9 +14,13 @@ module.exports = {
       'mostaza' : '#DAA421',
       'beige' : '#D19F5C',
       'rosapalo' : '#E9B586',
+      'bgForm' : '#E9B58650',
       'fondoCard' : '#FFE59370',
       'boton' : '#B3E2A6',
       'botonActive' : '#A9DE66',
+      'fondoDetail' : '#FFE593',
+      'success' : '#008000',
+      'error' : '#ff1500',
       inherit: colors.inherit,
       current: colors.current,
       transparent: colors.transparent,
@@ -934,7 +938,7 @@ module.exports = {
       50: '50',
     },
     extend: {fontFamily: {
-      'fredoka': ['"Fredoka"'],
+      'fredoka': ['"Fredoka One"'],
       'nunito': ['"Nunito"']
     }},
   },

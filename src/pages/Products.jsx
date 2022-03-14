@@ -1,85 +1,44 @@
 import React, {useState} from 'react'
 import ProductCards from '../components/ProductCards'
 import ButonSection from '../components/ButonSection'
-
-import chocolate from '../assets/Chocolate.png'
-import limon from '../assets/Limon.png'
-import zanahoria from '../assets/Zanahoria.png'
+import Navbar from '../components/Navbar'
+import { CartState } from '../context/Context'
+import NavbarTop from '../components/NavbarTop'
+import Footer from '../components/Footer'
 
 const Products = () => {
 
-    const [searchItem, setSearchItem] = useState('')
+    const {state:{cardInfo}} = CartState()
 
-    const cardInfo = [{
-        "id": 1,
-        "name": "Torta de Cafe",
-        "img": chocolate,
-        "category": "Cake"
-    },
-    {
-        "id": 2,
-        "name": "Torta de Zanahoria",
-        "img": limon,
-        "category": "Cake"
-    },
-    {
-        "id": 3,
-        "name": "Torta Red Velvet",
-        "img": zanahoria,
-        "category": "Cake"
-    },
-    {
-        "id": 4,
-        "name": "Bola Navideña",
-        "img": chocolate,
-        "category": "Chocolate"
-    },
-    {
-        "id": 5,
-        "name": "Torta de Chocolate",
-        "img": limon,
-        "category": "Cake"
-    },
-    {
-        "id": 6,
-        "name": "Corazon Relleno",
-        "img": zanahoria,
-        "category": "Chocolate"
-    },{
-        "id": 7,
-        "name": "Torta de Vino",
-        "img": chocolate,
-        "category": "Cake"
-    },
-    {
-        "id": 8,
-        "name": "Torta de Amapola",
-        "img": limon,
-        "category": "Cake"
-    },
-    {
-        "id": 9,
-        "name": "Torta de Limon",
-        "img": zanahoria,
-        "category": "Cake"
-    },
-    {
-        "id": 10,
-        "name": "Cupcake de Kinder",
-        "img": chocolate,
-        "category": "Cupcake"
-    }]
+    const [info,setCardInfo] = useState(cardInfo)
+
+    const filtroCategory = (c)=>{
+        const result = cardInfo.filter((cat) => 
+        {
+            return cat.category === c
+        });
+        setCardInfo(result)
+    }
 
     return (
         <>
-            <h1 className='font-black text-4xl py-6 font-fredoka text-center'>CELEBRA LA <b className='text-mostaza'>VIDA</b></h1>
-            <div className='flex justify-around items-center w-4/5 m-auto'>
-                <input type="text" className='rounded-full p-1 border-2 border-black/50 w-11/12' placeholder='Search Cakes...' onChange={(e)=>setSearchItem(e.target.value)}/>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div className='lg:flex lg:justify-between lg:m-auto lg:items-center lg:w-11/12'>
+                <h1 className='font-black text-4xl lg:py-6 pt-6 font-fredoka text-center'>CELEBRA LA <b className='text-mostaza'>VIDA</b></h1>
+                <div className='opacity-0 lg:opacity-100 lg:w-1/4'>
+                    <NavbarTop/>
+                </div>
             </div>
-            <p className='font-fredoka font-black pl-8 py-4'>Categorias</p>
-            <ButonSection/>
-            <ProductCards searchItem={searchItem} cardInfo={cardInfo}/>
+            <p className='font-fredoka font-black pl-8 pb-4 lg:hidden'>Categorias</p>
+            <ButonSection filtroCategory={filtroCategory} setCardInfo={setCardInfo}/>
+            <div className='md:flex md:flex-wrap md:h-1/2 md:w-11/12 md:gap-2 md:m-auto md:my-6'>
+                <ProductCards cardInfo={info}/>
+            </div>
+            <div className='opacity-0 lg:opacity-100'>
+                <Footer/>
+            </div>
+            <div className='lg:hidden'>
+                <Navbar/>
+            </div>
         </>
     )
 }
