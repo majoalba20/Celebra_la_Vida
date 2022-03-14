@@ -5,6 +5,7 @@ import CartCard from '../components/CartCard'
 import NavbarTop from '../components/NavbarTop'
 import Footer from '../components/Footer'
 import emptyCart from '../assets/emptyCart.jpeg'
+import Form from '../components/Form'
 
 const CartSummary = () => {
 
@@ -14,12 +15,14 @@ const CartSummary = () => {
 
     const [message, setMessage] = useState("")
 
+    const [userData, setUserData] = useState({})
+
     const createMessage = () => {
-        let message = `Hola me gustaria pedir: ${cart.map((item) => {
+        let message = `Hola, soy ${userData.name} y me gustaria pedir: ${cart.map((item) => {
             return (
-                " " + "("+item.qty+")" + " " + item.name
+                " " + "("+item.qty+")" + " " + item.name + " "
             )
-        })}\n\nTOTAL: $${total}`
+        })}\n\nTOTAL sin domicilio: $${total}`
         message = encodeURI(message)
         return message
     }
@@ -59,7 +62,8 @@ const CartSummary = () => {
                             <span>TOTAL</span>
                             <span>${total}</span>
                         </div>
-                        <div className='w-full flex justify-center pt-6 pb-10'>
+                        <Form setUserData={setUserData} />
+                        <div className='w-full flex justify-center pt-6 pb-32'>
                             <a
                                 onClick={() => {setMessage(createMessage)}}
                                 href={`https://api.whatsapp.com/send?phone=${'+573504598741'}&text=${message}`}>
