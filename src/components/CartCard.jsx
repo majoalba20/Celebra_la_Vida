@@ -24,7 +24,7 @@ const CartCard = () => {
     return (
         cart.map(c => {
             return(
-                <div className='flex w-4/5 lg:w-1/6 my-4 lg:my-3 rounded-md items-center bg-fondoCard shadow-xl hover:scale-110' key={c.id}>
+                <div className='flex w-4/5 lg:w-1/6 my-4 lg:my-3 rounded-md items-center bg-fondoCard shadow-xl' key={c.id}>
                     <div className='w-2/4 flex justify-center items-center'><img className='w-11/12' src={c.img} alt=''/></div>
                     <div className='w-2/4 flex flex-col items-center gap-y-3'>
                         <div className='text-center font-fredoka'>{c.name}</div>
